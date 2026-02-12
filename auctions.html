@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Търгове - ЧСИ Драган Драганов</title>
+    <title>Търгове - ЧСИ Стефан Петров</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -67,13 +67,14 @@
                         <p>Всички актуални обявления за публични продажби на движимо и недвижимо имущество можете да намерите в регистъра на КЧСИ.</p>
                         <br>
                         <ul class="about-list">
-                            <li>
-                                <a href="https://sales.bcpea.org/properties?court=28&city" target="_blank" style="color: #fff;">
-                                    Към онлайн регистъра на продажбите →
-
-                            </a>
-                        </li>
-                        </ul>
+    <li class="type-me">Използвайте връзката по-долу, за да разгледате актуалните обявления:</li>
+    
+    <div class="static-link-container">
+        <a href="https://sales.bcpea.org/properties?court=28&city" target="_blank" class="auction-link-active">
+            Към онлайн регистър за публична продан →
+        </a>
+    </div>
+</ul>
                         <p class="highlight-text">Обявленията се поставят и на съответното място в Районен съд - София.</p>
                     </div>
                 </div>
@@ -164,7 +165,7 @@
                     await new Promise(resolve => setTimeout(resolve, 150));
                     box.style.opacity = '1';
                     box.style.transform = 'translateY(0)';
-                    const elements = box.querySelectorAll('h3, p, li');
+                    const elements = box.querySelectorAll('h3, p, li.type-me');
                     for (const el of elements) { await typeWriter(el); }
                 }
                 sessionStorage.setItem('auctionsAnimationSeen', 'true');
@@ -172,7 +173,7 @@
         });
     </script>
  <script>
-        // Кодът трябва да е ВЪТРЕ в тези тагове, за да се оцвети и заработи
+        
         document.addEventListener('DOMContentLoaded', () => {
             const trigger = document.getElementById('admin-trigger');
             const modal = document.getElementById('admin-modal');
