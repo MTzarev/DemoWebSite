@@ -1,0 +1,525 @@
+/* =========================================
+   1. ОБЩИ СТИЛОВЕ (DESKTOP DEFAULT)
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-style: italic;
+    background-color: #1a1a1a;
+    color: #8f8c8c;
+    height: 100%;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+/* --- 2. НАВИГАЦИЯ (HEADER) --- */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0) 100%);
+    padding: 5px 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box; /* Добавено за сигурност */
+}
+
+nav {
+    margin-left: auto;
+    margin-right: 10%;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    -webkit-mask-image: radial-gradient(ellipse, black 40%, transparent 60%);
+    mask-image: radial-gradient(ellipse, black 10%, transparent 55%);
+}
+
+nav ul { margin: 0; padding: 0; list-style: none; display: flex; }
+nav ul li { margin-left: 15px; }
+nav ul li a {
+    color: #d2cfcf;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+nav ul li a:hover { color: #a9a7a7; }
+
+/* Ефект на подчертаване при ховър */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #a9a7a7;
+    transition: width 0.3s ease;
+}
+nav ul li a:hover::after { width: 100%; }
+
+/* --- 3. НАЧАЛНА СТРАНИЦА (HERO SECTION) --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff; /* Бяло само за десктоп под маската */
+    overflow: hidden; /* Да не излизат елементи */
+}
+
+.hero-top-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/office.jpg');
+    background-size: cover;
+    background-position: center;
+    -webkit-mask-image: linear-gradient(105deg, black 45%, transparent 80%);
+    mask-image: linear-gradient(105deg, black 45%, transparent 80%);
+    z-index: 1;
+}
+
+/* --- 4. КАРТА И МАРКЕР --- */
+.map-container {
+    position: absolute;
+    bottom: 40%;
+    right: 0%;
+    width: 35%;
+    height: 35%;
+    background-image: url('images/map.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sofia-marker {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    top: 41%;
+    left: 27%;
+    filter: grayscale(40%) contrast(120%);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.sofia-marker:hover {
+    transform: scale(1.2);
+    mix-blend-mode: normal;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.88); }
+    100% { transform: scale(1); }
+}
+.pulsing-effect { animation: pulse 5s infinite; }
+
+/* --- 5. ТЕКСТОВЕ (HERO CONTENT) --- */
+.hero-content {
+    position: absolute;
+    padding: 40px;
+    box-sizing: border-box;
+    max-width: 55%;
+    z-index: 3;
+    color: #a9a7a7;
+}
+
+.content-top-left {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    text-align: center;
+}
+
+.content-bottom-right {
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 40px;
+    right: 6.5%;
+    text-align: center;
+    max-width: 25%;
+}
+
+.hero-content h1 { font-size: 2em; font-weight: 300; line-height: 1.2; margin: 0; }
+.hero-content h1 strong { font-weight: 600; }
+.hero-content p { font-size: 2em; margin-top: 10px; font-weight: 200; }
+
+/* --- 6. ВЪТРЕШНИ СТРАНИЦИ (CONTENT SECTION) --- */
+.content-section {
+    padding: 100px 10% 50px 10%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f0f0f0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content-section h1 {
+    font-size: 1.8em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- 7. ФУТЪР ЗА INDEX.HTML --- */
+.hero-section footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 0) 100%);
+    padding: 30px 5% 15px 5%;
+    box-sizing: border-box;
+}
+
+/* --- 8. ФУТЪР ЗА ВЪТРЕШНИ СТРАНИЦИ (STATIC) --- */
+footer.static-footer {
+    position: relative;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.85); 
+    padding: 0px 10% 15px 10%;
+    margin-top: -135px; 
+    box-sizing: border-box;
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+footer.static-footer::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 0.85) 100%);
+    pointer-events: none;
+}
+
+/* --- 9. ОБЩИ ФУТЪР КОМПОНЕНТИ --- */
+.footer-content-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.footer-column { flex: 1; padding: 0 20px; text-align: left; }
+.footer-column h3 { color: #fff; font-size: 0.8em; font-style: italic; letter-spacing: 2px; margin-bottom: 10px; }
+.footer-column p { font-size: 0.8em; margin: 3px 0; color: #d2cfcf; }
+
+.footer-v-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    align-self: center;
+}
+
+.footer-nav { list-style: none; padding: 0; margin: 0; }
+.footer-nav li a { color: #d2cfcf; text-decoration: none; font-size: 0.8em; transition: 0.3s; }
+.footer-nav li a:hover { color: #fff; }
+
+.footer-bottom-bar {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 5px;
+    padding-top: 1px;
+}
+.footer-bottom-bar p { font-size: 0.65em; opacity: 0.6; }
+
+/* --- 10. КОНТАКТИ И АДМИН ПАНЕЛ --- */
+.contact-info ul { list-style: none; padding-left: 20px; }
+.contact-info strong { color: #fff; }
+#admin-link { color: #fff; font-weight: bold; text-decoration: underline; }
+
+/* --- СТИЛ ЗА КОНТЕЙНЕРИТЕ --- */
+.about-grid-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.left-column { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+.right-column { flex: 1; display: flex; }
+
+.services-grid .left-column, 
+.services-grid .right-column { flex: 1; }
+
+.about-box {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about-box p { margin: 5px 0; font-size: 0.95em; }
+.about-box:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.about-list li { padding-left: 15px; margin-bottom: 5px; font-size: 0.9em; }
+.highlight-text {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.about-box p, .about-box li { min-height: 1.2em; word-wrap: break-word; }
+.about-box h3 {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.contacts-grid .left-column, 
+.contacts-grid .right-column { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.contacts-grid .about-box h3 { font-size: 1em; margin-bottom: 8px; }
+.contacts-grid .about-box p { font-size: 0.9em; }
+
+.triple-grid { margin-top: 5px; }
+.triple-grid .about-box { flex: 1; }
+.triple-grid .about-box h3 {
+    color: #fff;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+
+/* =========================================
+   FIXED MOBILE DESIGN (НОВАТА ЧАСТ)
+   ========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    /* 1. РАЗПЪВАНЕ НА ФОНА (Най-важната част) */
+    .hero-top-layer {
+        width: 100%;
+        height: 100%; /* Заема целия екран */
+        /* Махаме изрязването (mask), за да не се вижда бяло отдолу */
+        -webkit-mask-image: none;
+        mask-image: none;
+        /* Тъмен градиент върху целия екран за четимост */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/office.jpg');
+        z-index: 0;
+    }
+
+    /* 2. НАСТРОЙКА НА СЕКЦИЯТА (Вече не е бяла отдолу) */
+    .hero-section {
+        height: auto;
+        min-height: 100vh; /* Покрива екрана */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Центрира вертикално */
+        align-items: center;
+        background-color: #1a1a1a; /* Резервен тъмен фон */
+    }
+
+    /* 3. ТЕКСТЪТ (Центриран, горе) */
+    .hero-content {
+        position: relative;
+        top: auto; left: auto; right: auto; bottom: auto;
+        transform: none;
+        max-width: 90%;
+        text-align: center;
+        padding-top: 100px; /* Място под навигацията */
+        z-index: 5;
+    }
+
+    .content-top-left, 
+    .content-bottom-right {
+        position: relative;
+        top: auto; left: auto; right: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 30px 0;
+    }
+    
+    .hero-content h1 { font-size: 1.8em; }
+
+    /* 4. КАРТАТА (Интегрирана в дизайна под текста) */
+    .map-container {
+        position: relative; /* Вече не е absolute */
+        bottom: auto; right: auto;
+        
+        /* Размери за мобилен */
+        width: 100%; 
+        max-width: 350px; /* Ограничаваме да не стане огромна */
+        height: 250px;
+        
+        margin: 0 auto 40px auto; /* Центриране */
+        opacity: 0.9; /* Леко прозрачна */
+        z-index: 5;
+    }
+    
+    .sofia-marker {
+        width: 30px;
+        /* Корекция на маркера за новия размер */
+        top: 38%; 
+        left: 28%; 
+    }
+
+    /* --- ХЕДЪР (Навигация) --- */
+    header {
+        position: relative; /* Влиза в потока */
+        background: transparent; /* Прозрачен, защото фонът отдолу е тъмен */
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    .logo img { height: 70px; margin-bottom: 10px; }
+    
+    nav { width: 100%; margin: 10px 0; }
+    
+    nav ul { 
+        justify-content: center; 
+        flex-wrap: wrap;
+        gap: 15px; 
+    }
+    
+    nav ul li { margin: 0 10px; }
+    
+    /* --- ВЪТРЕШНИ СТРАНИЦИ FIX --- */
+    .content-section { padding: 20px 5%; }
+    .about-grid-container, .triple-grid { flex-direction: column; gap: 20px; }
+    .footer-content-wrapper { flex-direction: column; text-align: center; gap: 20px; }
+    .footer-v-divider { width: 100px; height: 1px; margin: 10px auto; }
+}
+
+/* Бягащ текст */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    /* Обновен градиент с новия цвят в средата */
+    background: linear-gradient(90deg, 
+        rgba(19, 17, 17, 0.9) 0%,   /* Тъмно начало */
+        rgba(107, 90, 77, 0.8) 50%, /* ТВОЯТ ЦВЯТ (Taupe/Warm Brown) */
+        rgba(26, 26, 26, 0.95) 100% /* Сливане с основния фон */
+    );
+    
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    
+    /* Добавяме малко повече "стъкло" ефект, за да изпъкне този нюанс */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.ticker {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker 50s linear infinite;
+    font-weight: bold;
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Модален прозорец */
+/* Обновен Админ Модал */
+.admin-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); /* По-плътно черно за фокус */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.admin-modal-content {
+    background: #1a1a1a; /* Основния цвят на сайта */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #6b5a4d; /* Твоят Taupe цвят за рамка */
+    width: 90%;
+    max-width: 450px;
+    color: #d2cfcf;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Скрити секции по подразбиране */
+.admin-section { display: none; flex-direction: column; }
+.admin-section.active { display: flex; }
+
+/* Стилни бутони в цветовете на сайта */
+.admin-btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+
+.admin-btn-main {
+    background: #6b5a4d; /* Твоят Taupe цвят */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-style: italic;
+    transition: 0.3s;
+    width: 100%; /* За главното меню */
+    text-align: center;
+}
+
+.admin-btn-main:hover { background: #857365; }
+
+.save-btn { background: #6b5a4d; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+.clear-btn { background: #333; color: #8f8c8c; border: 1px solid #444; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+.close-btn { background: transparent; color: #8f8c8c; border: none; cursor: pointer; text-decoration: underline; margin-top: 10px; }
+
+.admin-modal-content input, .admin-modal-content textarea {
+    background: #252525;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}

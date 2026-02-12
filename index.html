@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="bg">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ЧСИ Драган Драганов</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="global-ticker" class="ticker-wrap" style="display: none;">
+    <div class="ticker">
+        <span id="ticker-text"></span>
+    </div>
+</div>
+
+<div id="admin-modal" class="admin-modal">
+    <div class="admin-modal-content">
+        <div id="admin-menu" class="admin-section active">
+            <h3 style="color: #fff; border-bottom: 1px solid #6b5a4d; padding-bottom: 10px;">Админ Панел</h3>
+            <p>Изберете действие:</p>
+            <button class="admin-btn-main" onclick="openSection('section-banner')">Активиране на Съобщение</button>
+            <button class="admin-btn-main" style="margin-top:10px; opacity: 0.7;" onclick="openSection('section-docs')">Добавяне на допълнителни бланки</button>
+            <button class="close-btn" onclick="closeAdmin()">Затвори</button>
+        </div>
+
+        <div id="section-banner" class="admin-section">
+            <h3 style="color: #fff;">Управление на известия</h3>
+            <label>Период (от - до):</label>
+            <div style="display: flex; gap: 10px; margin: 10px 0;">
+                <input type="date" id="vacation-start">
+                <input type="date" id="vacation-end">
+            </div>
+            <textarea id="vacation-msg" placeholder="Въведете съобщение за банера..."></textarea>
+            <div class="admin-btns">
+                <button onclick="saveNotice()" class="save-btn">Запази и Активирай</button>
+                <button onclick="clearNotice()" class="clear-btn">Изчисти банера</button>
+            </div>
+            <button class="close-btn" onclick="openSection('admin-menu')">← Обратно към менюто</button>
+        </div>
+
+        <div id="section-docs" class="admin-section">
+            <h3 style="color: #fff;">Добавяне на бланки</h3>
+            <p>Тази функционалност се подготвя...</p>
+            <button class="close-btn" onclick="openSection('admin-menu')">← Обратно към менюто</button>
+        </div>
+    </div>
+</div>
+
+    <header>
+
+        <div class="logo">
+
+            <img src="images/logo1.jpg" alt="Лого на кантората">
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Начало</a></li>
+
+                <li><a href="about.html">За кантората</a></li>
+
+                <li><a href="services.html">Правомощия и услуги</a></li>
+
+                <li><a href="#">Бланки</a></li>
+
+                <li><a href="contacts.html">Контакти</a></li>
+
+                <li><a href="auctions.html">Търгове</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+        <section class="hero-section">
+
+            <div class="hero-top-layer"></div>
+
+
+
+            <div class="hero-content content-top-left">
+
+                <h1><strong>ЧСИ Стефан Петров</strong><br>рег. No 921 <br> Район на действие СГС</h1>
+
+                <br><br><p>Честните практики
+
+при принудително изпълнение на вземания
+
+имат значение
+
+</p>
+
+            </div>
+
+
+
+            <div class="map-container pulsing-effect">
+                <img src="images/logo1.jpg" class="sofia-marker" alt="София">
+</div>
+
+           <div class="hero-content content-bottom-right pulsing-effect">
+
+                 <h1>Софийски Градски Съд <br><strong></strong></h1>
+
+            </div>
+
+            
+
+<footer>
+            <div class="footer-content-wrapper home-footer">
+                <div class="footer-column">
+                    <h3>Контакти</h3>
+                    <p>гр. София, ул. "Солунска" № 19</p>
+                    <p>тел.  0 700 700 03</p>
+                    <p>тел. 02/962 22 35</p>
+                    <p>тел. 02/943 83 75</p>
+                    <p>e-mail: kantora921@stefanpetrov.bg</p>
+                </div>
+                <div class="footer-v-divider"></div>
+                <div class="footer-column">
+                <h3>Сметка за разноски</h3>
+                <p>Юробанк България АД</p>
+                <p>BIC: BPBIBGSF</p>
+                <p>IBAN: BG51BPBI79421021527605</p>
+                </div>
+                <div class="footer-v-divider"></div>
+                <div class="footer-column">
+                    <h3>Меню</h3>
+                     <ul class="footer-nav">
+                    <li><a href="index.html">Начало / </a>
+                    <a href="about.html">За кантората</a></li>
+                    <li><a href="services.html">Правомощия и услуги / </a>
+                    <a href="blanks.html">Бланки</a></li>
+                    <li><a href="contacts.html">Контакти /</a>
+                    <a href="auctions.html">Търгове</a></li>
+                </ul>
+                </div>
+            </div>
+         <div class="footer-bottom-bar">
+    <p id="admin-trigger" style="cursor: pointer; display: inline-block;">
+       © 2026 ЧСИ Стефан Петров - рег. No 921 с район на действие СГС. Всички права запазени.
+    </p>
+</div>
+        </footer>
+
+        </section>
+
+    </main>
+<script>
+        // Кодът трябва да е ВЪТРЕ в тези тагове, за да се оцвети и заработи
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('admin-trigger');
+            const modal = document.getElementById('admin-modal');
+            
+            if (trigger) {
+                trigger.addEventListener('click', () => {
+                    const pass = prompt("Моля, въведете администраторски ключ:");
+                    if (pass === "admin123") { 
+                        modal.style.display = 'flex';
+                    }
+                });
+            }
+            checkNotice();
+        });
+
+        function saveNotice() {
+            const data = {
+                start: document.getElementById('vacation-start').value,
+                end: document.getElementById('vacation-end').value,
+                msg: document.getElementById('vacation-msg').value
+            };
+            localStorage.setItem('chsi_notice', JSON.stringify(data));
+            alert("Банерът е активиран!");
+            location.reload();
+        }
+
+        function clearNotice() {
+            localStorage.removeItem('chsi_notice');
+            alert("Известията са изчистени.");
+            location.reload();
+        }
+
+        function closeAdmin() {
+            document.getElementById('admin-modal').style.display = 'none';
+        }
+        function openSection(sectionId) {
+    // Скриваме всички секции
+    document.querySelectorAll('.admin-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    // Показваме избраната
+    document.getElementById(sectionId).classList.add('active');
+}
+
+// Променяме closeAdmin да ни връща винаги в началното меню при следващо отваряне
+function closeAdmin() {
+    document.getElementById('admin-modal').style.display = 'none';
+    openSection('admin-menu'); 
+}
+
+        function checkNotice() {
+            const saved = localStorage.getItem('chsi_notice');
+            if (saved) {
+                const data = JSON.parse(saved);
+                const today = new Date().toISOString().split('T')[0];
+                
+                if (today >= data.start && today <= data.end) {
+                    const ticker = document.getElementById('global-ticker');
+                    const text = document.getElementById('ticker-text');
+                    if (ticker && text) {
+                        text.textContent = data.msg + " • " + data.msg + " • " + data.msg;
+                        ticker.style.display = 'block';
+                        const header = document.querySelector('header');
+                        if (header) header.style.top = '35px';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

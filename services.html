@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правомощия и услуги - ЧСИ Драган Драганов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="global-ticker" class="ticker-wrap" style="display: none;">
+    <div class="ticker">
+        <span id="ticker-text"></span>
+    </div>
+</div>
+
+<div id="admin-modal" class="admin-modal">
+    <div class="admin-modal-content">
+        <h3>Управление на известия</h3>
+        <label>Изберете период (от - до):</label>
+        <div style="display: flex; gap: 10px; margin: 10px 0;">
+            <input type="date" id="vacation-start">
+            <input type="date" id="vacation-end">
+        </div>
+        <textarea id="vacation-msg" placeholder="Въведете съобщение..."></textarea>
+        <div class="admin-btns">
+            <button onclick="saveNotice()" class="save-btn">Запази и Активирай</button>
+            <button onclick="closeAdmin()" class="close-btn">Отказ</button>
+            <button onclick="clearNotice()" class="clear-btn">Изчисти банера</button>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo1.jpg" alt="Лого на кантората">
+        </div>
+        <nav>
+          
+            <ul>
+
+                <li><a href="index.html">Начало</a></li>
+
+                <li><a href="about.html">За кантората</a></li>
+
+                <li><a href="services.html">Правомощия и услуги</a></li>
+
+                <li><a href="#">Бланки</a></li>
+
+                <li><a href="contacts.html">Контакти</a></li>
+
+                <li><a href="auctions.html">Търгове</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>Правомощия и услуги</h1>
+            
+            <div class="about-grid-container services-grid">
+                <div class="left-column">
+                    <div class="about-box full-height">
+                        <h3>Законови правомощия</h3>
+                        
+                        <ul class="about-list">
+                            <li>Принудително събиране на парични вземания</li>
+                            <li>Принудително въвежда във владение на недвижими имоти и предава движими вещи</li>
+                            <li>Привежда в изпълнение допуснати от съда обезпечителни мерки</li>
+                            <li>Осъществява принуда срещу осъдените да изпълнят определено действие или бездействие</li>
+                            <li>Извършва запечатване на помещения, оборудване, превозни средства в рамките на производството по несъстоятелност</li>
+                            <br>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="about-box full-height">
+                        <h3>Допълнителни услуги</h3>
+                       
+                        <ul class="about-list">
+                            <li>По възлагане на органите, компетентни да установят публични вземания, принудително събиране на публични държавни вземания</li>
+                            <li>По възлагане от пристъпилия към изпълнение заложен кредитор, извършва предаване на заложеното имущество или извършва продажба на
+такова по реда на Закона за особените залози или по реда на Гражданско процесуалния кодекс</li>
+                            <li>Връчва покани, съобщения, отговори и други книжа във връзка с гражданскоправни отношения, а по разпореждане на съда - съобщения и призовки
+по граждански дела.</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="static-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-column">
+                <h3>Контакти</h3>
+                <p>гр. София, ул. "Солунска" № 19</p>
+                <p>тел.  0 700 700 03</p>
+                <p>тел. 02/962 22 35; 02/943 83 75</p>
+                <p>e-mail: kantora921@stefanpetrov.bg</p>
+            </div>
+            <div class="footer-v-divider"></div>
+            <div class="footer-column">
+                 <h3>Сметка за разноски</h3>
+                    <p>Юробанк България АД</p>
+                    <p>BIC: BPBIBGSF</p>
+                    <p>IBAN: BG51BPBI79421021527605</p>
+            </div>
+            <div class="footer-v-divider"></div>
+            <div class="footer-column">
+                <h3>Меню</h3>
+                     <ul class="footer-nav">
+                    <li><a href="index.html">Начало / </a>
+                    <a href="about.html">За кантората</a></li>
+                    <li><a href="services.html">Правомощия и услуги / </a>
+                    <a href="blanks.html">Бланки</a></li>
+                    <li><a href="contacts.html">Контакти /</a>
+                    <a href="auctions.html">Търгове</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p>© 2026 ЧСИ Стефан Петров - рег. No 921 с район на действие СГС. Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Логика за напасване на екрана
+        function adjustForScreen() {
+            const vh = window.innerHeight;
+            const bodyHeight = document.body.offsetHeight;
+            if (bodyHeight > vh) {
+                const container = document.querySelector('.about-grid-container');
+                if(container) container.style.gap = '15px';
+                document.querySelectorAll('.about-box').forEach(box => box.style.padding = '20px');
+            }
+        }
+        window.addEventListener('load', adjustForScreen);
+        window.addEventListener('resize', adjustForScreen);
+
+        // Логика "Пишеща машина" (Typewriter)
+        async function typeWriter(element) {
+            const text = element.getAttribute('data-text');
+            element.innerHTML = '';
+            element.style.opacity = '1';
+            element.style.visibility = 'visible';
+
+            for (let i = 0; i < text.length; i++) {
+                if (text[i] === '<') {
+                    const tagEnd = text.indexOf('>', i);
+                    element.innerHTML += text.substring(i, tagEnd + 1);
+                    i = tagEnd;
+                } else {
+                    element.innerHTML += text[i];
+                }
+                await new Promise(resolve => setTimeout(resolve, 10)); // Твоята скорост
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const boxes = document.querySelectorAll('.about-box');
+            const hasSeenAnimation = sessionStorage.getItem('servicesAnimationSeen');
+
+            if (hasSeenAnimation) {
+                boxes.forEach(box => {
+                    box.style.opacity = '1';
+                    box.style.transform = 'translateY(0)';
+                    box.querySelectorAll('p, li, h3').forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.visibility = 'visible';
+                    });
+                });
+            } else {
+                boxes.forEach(box => {
+                    const elements = box.querySelectorAll('h3, p, li');
+                    elements.forEach(el => {
+                        el.setAttribute('data-text', el.innerHTML);
+                        el.innerHTML = '';
+                        el.style.opacity = '0';
+                        el.style.visibility = 'hidden';
+                    });
+                });
+
+                for (const box of boxes) {
+                    box.style.opacity = '0';
+                    box.style.transform = 'translateY(10px)';
+                    box.style.transition = 'all 0.5s ease-out';
+                    
+                    await new Promise(resolve => setTimeout(resolve, 150));
+                    box.style.opacity = '1';
+                    box.style.transform = 'translateY(0)';
+
+                    const elements = box.querySelectorAll('h3, p, li');
+                    for (const el of elements) {
+                        await typeWriter(el);
+                    }
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+                sessionStorage.setItem('servicesAnimationSeen', 'true');
+            }
+        });
+    </script>
+    <script>
+        // Кодът трябва да е ВЪТРЕ в тези тагове, за да се оцвети и заработи
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('admin-trigger');
+            const modal = document.getElementById('admin-modal');
+            
+            if (trigger) {
+                trigger.addEventListener('click', () => {
+                    const pass = prompt("Моля, въведете администраторски ключ:");
+                    if (pass === "admin123") { 
+                        modal.style.display = 'flex';
+                    }
+                });
+            }
+            checkNotice();
+        });
+
+        function saveNotice() {
+            const data = {
+                start: document.getElementById('vacation-start').value,
+                end: document.getElementById('vacation-end').value,
+                msg: document.getElementById('vacation-msg').value
+            };
+            localStorage.setItem('chsi_notice', JSON.stringify(data));
+            alert("Банерът е активиран!");
+            location.reload();
+        }
+
+        function clearNotice() {
+            localStorage.removeItem('chsi_notice');
+            alert("Известията са изчистени.");
+            location.reload();
+        }
+
+        function closeAdmin() {
+            document.getElementById('admin-modal').style.display = 'none';
+        }
+
+        function checkNotice() {
+            const saved = localStorage.getItem('chsi_notice');
+            if (saved) {
+                const data = JSON.parse(saved);
+                const today = new Date().toISOString().split('T')[0];
+                
+                if (today >= data.start && today <= data.end) {
+                    const ticker = document.getElementById('global-ticker');
+                    const text = document.getElementById('ticker-text');
+                    if (ticker && text) {
+                        text.textContent = data.msg + " • " + data.msg + " • " + data.msg;
+                        ticker.style.display = 'block';
+                        const header = document.querySelector('header');
+                        if (header) header.style.top = '35px';
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
