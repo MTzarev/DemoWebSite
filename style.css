@@ -420,8 +420,8 @@ footer.static-footer {
         right: 0 !important;
         z-index: 4;
         mix-blend-mode: lighten; /* Прави бялото прозрачно и го слива с тъмния фон */
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1)); /* Добавя леко меко сияние */
-        opacity: 0.9;
+        filter: drop-shadow(0 0 65px rgba(256, 256, 256, 2.5)); /* Добавя леко меко сияние */
+        opacity: 0.2;
     }
 
     .sofia-marker {
