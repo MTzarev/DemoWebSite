@@ -1,4 +1,6 @@
-
+/* =========================================
+   1. ОБЩИ СТИЛОВЕ (DESKTOP DEFAULT)
+   ========================================= */
 body, html {
     margin: 0;
     padding: 0;
@@ -366,7 +368,7 @@ footer.static-footer {
 }
 
 /* =========================================
-   МОБИЛНА ВЕРСИЯ (RESPONSIVE)
+   13. МОБИЛНА ВЕРСИЯ (RESPONSIVE)
    ========================================= */
 @media screen and (max-width: 1024px) {
     header { position: relative; flex-direction: column; padding: 15px 0; background: #111; }
@@ -411,18 +413,22 @@ footer.static-footer {
 
     .map-container {
         position: relative !important;
-        width: 80% !important;
+        width: 85% !important;
         height: 250px !important;
-        margin: 20px auto !important;
+        margin: 40px auto !important;
         bottom: 0 !important;
         right: 0 !important;
         z-index: 4;
+        mix-blend-mode: lighten; /* Прави бялото прозрачно и го слива с тъмния фон */
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1)); /* Добавя леко меко сияние */
+        opacity: 0.9;
     }
 
     .sofia-marker {
         width: 30px !important;
         top: 40% !important;
         left: 28% !important;
+        mix-blend-mode: normal !important;
     }
 
     /* Футърът в началната страница става нормален блок */
@@ -477,4 +483,3 @@ footer.static-footer {
     border-bottom-color: #857365;
     transform: translateX(5px); 
 }
-
