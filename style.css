@@ -1,6 +1,4 @@
-/* =========================================
-   1. ОБЩИ СТИЛОВЕ (DESKTOP DEFAULT)
-   ========================================= */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -368,7 +366,7 @@ footer.static-footer {
 }
 
 /* =========================================
-   13. МОБИЛНА ВЕРСИЯ (RESPONSIVE)
+   МОБИЛНА ВЕРСИЯ (RESPONSIVE)
    ========================================= */
 @media screen and (max-width: 1024px) {
     header { position: relative; flex-direction: column; padding: 15px 0; background: #111; }
@@ -479,3 +477,4 @@ footer.static-footer {
     border-bottom-color: #857365;
     transform: translateX(5px); 
 }
+
